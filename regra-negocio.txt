@@ -1,0 +1,12 @@
+1 - ter um serviço XMLRequest para solictar tela de usuario
+2 - recebe e interpreta o json
+3 - montar html
+4 - coletar dados do formulario montado
+5 - enviar para o servidor de volta(POST)
+
+;( function () {
+	
+	var App = App || {};
+	App.
+
+})();

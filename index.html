@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Mini Framework</title>
+		<link rel="stylesheet" href="css/style.css">	
+	</head>
+
+	<body>
+		
+		<div class="containerTest">
+			<h3>Form Dynamic</h3>
+			<div id="app-user"></div>
+		</div>
+
+	</body>
+
+	<script src="js/app.js"></script>
+	<script src="js/modules/http-request.js"></script>
+	<script src="js/services/ScreenService.js"></script>
+	<script src="js/controllers/ScreenController.js"></script>
+	<script src="js/models/ScreenModel.js"></script>
+	
+	<script src="js/modules/fields/App.Modules.Fields.Base.js"></script>
+	<script src="js/modules/fields/App.Modules.Fields.TextField.js"></script>
+	<script src="js/modules/fields/App.Modules.Fields.PasswordField.js"></script>
+	<script src="js/modules/fields/App.Modules.Fields.TelField.js"></script>
+	<script src="js/modules/fields/App.Modules.Fields.DateField.js"></script>
+	<script src="js/modules/fields/App.Modules.Fields.CheckBoxField.js"></script>
+	<script src="js/modules/fields/App.Modules.Fields.ButtonField.js"></script>
+
+	<script src="js/factory/FieldFactory.js"></script>
+	<script>
+		var screenUser = new App.Controllers.Screen().get('user');
+	</script>
+
+</html>

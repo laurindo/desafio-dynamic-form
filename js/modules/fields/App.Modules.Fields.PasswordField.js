@@ -4,6 +4,6 @@ App.Modules.Fields.PasswordField = function (config) {
 
 	this.elText.type = 'password';
 	this.elText.name = config.name || '';
-	this.elText.attributes.mandatory = config.mandatory || false;
+	this.elText.required = config.mandatory || false;
 
 };

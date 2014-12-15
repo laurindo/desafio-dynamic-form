@@ -2,14 +2,20 @@ App.Modules.Fields.TextField = function (config) {
 
 	App.Modules.Fields.Base.apply(this, arguments);
 
-	//TODO trazer texto com o titulo do field
-	this.label.innerHTML = 'laurindo';
+    this.label = document.createElement('label');
+    this.elText = document.createElement('input');
 
-	this.elText = document.createElement('input');
-	this.elText.type = 'text';
+    this.elText.type = 'text';
 	this.elText.name = config.name || '';
-	this.elText.attributes.mandatory = config.mandatory || false;
+    this.elText.required = config.mandatory || false;
 
-	this.el.appendChild(this.elText);
+    this.setLabel = function (label) {
+        this.label.innerHTML = label;
+    };
+
+    this.setLabel(config.name);
+
+    this.el.appendChild(this.label);
+    this.el.appendChild(this.elText);
 
 };

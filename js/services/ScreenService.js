@@ -15,30 +15,36 @@ App.Services.Screen = function (screenName) {
 		var model = new App.Model.Screen();
 		var sections = model.get();
 		var bodyPage = document.getElementById('app-user');
+        var form = document.createElement('form');
 
-		this.createForm(sections);
-		
-		bodyPage.appendChild(docfrag);
+		this.createFields(sections);
+
+        form.appendChild(docfrag);
+		bodyPage.appendChild(form);
 
 	};
 
-	this.createForm = function (sections) {
+	this.createFields = function (sections) {
 
-		var field = new App.Field.Factory();
 		sections.forEach( (function (self) {
 
-			return function (index, value) {
+			return function (index) {
 
-				var titleSpan = document.createElement('span');
-				titleSpan.innerHTML = index.description;
-				docfrag.appendChild(titleSpan);
-				self.getTypeField(index.fields);
+				docfrag.appendChild( self.createSection( index ) );
+				self.getTypeField( index.fields );
 
 			}
 
 		})(this));
 
 	};
+
+    this.createSection = function (data) {
+        var titleSpan = document.createElement('div');
+        titleSpan.className = 'section';
+        titleSpan.innerHTML = data.description;
+        return titleSpan;
+    };
 
 	this.getTypeField = function (fields) {
 

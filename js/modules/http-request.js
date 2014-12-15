@@ -1,6 +1,6 @@
 ;( function () {
 
-	App.Modules.HttpRequest = function () {
+	App.Modules.HttpRequest = (function () {
 
 		var _resourcePath = null;
 		var _ACTION = {
@@ -19,14 +19,19 @@
 			    if(xhr.readyState === 4 && xhr.status === 200) {
 			        console.log(xhr.responseText);
 			    }
-			}
+			};
 
-			xhr.send();
+            if (obj) {
+                xhr.send(obj);
+            } else {
+                xhr.send();
+            }
+
 		}
 
-		this.get = function (resource) {
+		this.get = function (path) {
 			_typeAction = _ACTION.get;
-			_resourcePath = resource;
+			_resourcePath = path;
 			_initRequest();
 		};
 
@@ -36,8 +41,11 @@
 			_initRequest(objData);
 		};
 
-		return this;
+		return {
+            get: this.get,
+            post: this.post
+        };
 
-	};
+	})();
 
 })();
